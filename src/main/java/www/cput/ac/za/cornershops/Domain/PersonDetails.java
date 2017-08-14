@@ -6,16 +6,18 @@ import java.io.Serializable;
  * Created by noor on 07/08/2017.
  */
 public class PersonDetails implements Serializable{
-    private Long id;
+    private String id;
     private String firstName;
     private String lastName;
+    private Address address;
+    private ContactDetails contactDetails= new ContactDetails();
+    private BusinessDetails businessDetails;
 
-
-    public PersonDetails() {
+    private PersonDetails() {
     }
 
 
-    public Long getID() {
+    public String getID() {
         return id;
     }
 
@@ -28,19 +30,37 @@ public class PersonDetails implements Serializable{
         return lastName;
     }
 
-    private PersonDetails(Builder builder)
+    public ContactDetails getContactDetails() {
+        return contactDetails;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public BusinessDetails getBusinessDetails() {
+        return businessDetails;
+    }
+
+    public PersonDetails(Builder builder)
     {
         this.id = builder.id;
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
+        this.address=builder.address;
+        this.contactDetails=builder.contactDetails;
+        this.businessDetails=builder.businessDetails;
     }
 
     public static class Builder{
-        private Long id;
+        private String id;
         private String firstName;
         private String lastName;
+        private Address address;
+        private ContactDetails contactDetails= new ContactDetails();
+        private BusinessDetails businessDetails;
 
-        public Builder id(Long value)
+        public Builder id(String value)
         {
             this.id = value;
             return this;
@@ -58,6 +78,23 @@ public class PersonDetails implements Serializable{
             return this;
         }
 
+        public Builder address(Address value)
+        {
+            this.address=value;
+            return this;
+        }
+
+        public Builder contactDetails(ContactDetails value)
+       {
+            this.contactDetails = value;
+            return this;
+        }
+
+        public Builder businessDetails(BusinessDetails value)
+        {
+            this.businessDetails = value;
+            return this;
+        }
 
         public PersonDetails build(){
             return new PersonDetails(this);

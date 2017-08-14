@@ -7,9 +7,9 @@ import java.io.Serializable;
 /**
  * Created by noor on 07/08/2017.
  */
-public class MainCategories implements Serializable
+public class MainCategories implements Serializable,CategoryInterface
 {
-    private Long categoryId;
+    private String categoryId;
     private String category;
 
 
@@ -17,12 +17,12 @@ public class MainCategories implements Serializable
     }
 
 
-    public Long getCatergoryId() {
+    public String getCatergoryId() {
         return categoryId;
     }
 
 
-    public String getcategory() {
+    public String getCategory() {
         return category;
     }
 
@@ -35,11 +35,11 @@ public class MainCategories implements Serializable
     }
 
     public static class Builder{
-        private Long categoryId;
+        private String categoryId;
         private String category;
 
 
-        public Builder categoryId(Long value)
+        public Builder categoryId(String value)
         {
             this.categoryId = value;
             return this;

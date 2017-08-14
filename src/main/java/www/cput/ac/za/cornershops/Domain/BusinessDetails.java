@@ -7,18 +7,18 @@ import java.io.Serializable;
  */
 public class BusinessDetails implements Serializable
 {
-    private Long businessId;
+    private String businessId;
     private String businessName;
-
-
     private String businessDescription;
+    private PersonDetails personDetails;
+    private Products products;
 
 
     public BusinessDetails() {
     }
 
 
-    public Long getBusinessId() {
+    public String getBusinessId() {
         return businessId;
     }
 
@@ -31,21 +31,31 @@ public class BusinessDetails implements Serializable
         return businessDescription;
     }
 
+    public PersonDetails getPersonDetails() {
+        return personDetails;
+    }
+
+    public Products getProducts() {
+        return products;
+    }
+
     private BusinessDetails(Builder builder)
     {
         this.businessId = builder.businessID;
         this.businessName = builder.businessName;
         this.businessDescription=builder.businessDescription;
+        this.personDetails=builder.personDetails;
 
     }
 
     public static class Builder{
-        private Long businessID;
+        private String businessID;
         private String businessName;
         private String businessDescription;
+        private PersonDetails personDetails;
+        private Products products;
 
-
-        public Builder businessID(Long value)
+        public Builder businessID(String value)
         {
             this.businessID = value;
             return this;
@@ -62,11 +72,22 @@ public class BusinessDetails implements Serializable
             this.businessDescription=value;
             return this;
         }
+        public Builder personDetails(PersonDetails value)
+        {
+            this.personDetails = value;
+            return this;
+        }
 
+        public Builder products(Products value) {
+            this.products=value;
+            return this;
+        }
 
         public BusinessDetails build(){
             return new BusinessDetails(this);
         }
+
+
 
         @Override
         public boolean equals(Object o) {

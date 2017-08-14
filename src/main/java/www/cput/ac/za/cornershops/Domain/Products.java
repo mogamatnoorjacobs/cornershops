@@ -7,13 +7,14 @@ import java.io.Serializable;
  */
 public class Products implements Serializable{
 
-    private Long productID;
+    private String productID;
     private String productName;
     private String productDescription;
+    private SubCategories subCategories;
 
     public Products(){}
 
-    public Long getProductID() {
+    public String getProductID() {
         return productID;
     }
 
@@ -25,20 +26,26 @@ public class Products implements Serializable{
         return productDescription;
     }
 
+    public SubCategories getSubCategories() {
+        return subCategories;
+    }
 
     private Products(Builder builder)
     {
         this.productID = builder.productID;
         this.productName = builder.productName;
         this.productDescription = builder.productDescription;
+        this.subCategories=builder.subCategories;
     }
 
     public static class Builder{
-        private Long productID;
+        private String productID;
         private String productName;
         private String productDescription;
+        private SubCategories subCategories;
 
-        public Builder productID(Long value)
+
+        public Builder productID(String value)
         {
             this.productID = value;
             return this;
@@ -55,7 +62,11 @@ public class Products implements Serializable{
             this.productDescription = value;
             return this;
         }
-
+        public Builder subCategories(SubCategories value)
+        {
+            this.subCategories=value;
+            return this;
+        }
 
         public Products build(){
             return new Products(this);

@@ -7,9 +7,9 @@ import java.io.Serializable;
  */
 public class ContactDetails implements Serializable
 {
-    String cellNumber;
-    String homeNumber;
-    String emailAddress;
+    private String cellNumber;
+    private String homeNumber;
+    private String emailAddress;
 
     public ContactDetails() {
     }
@@ -28,14 +28,11 @@ public class ContactDetails implements Serializable
         return emailAddress;
     }
 
-
-
-    private ContactDetails(Builder builder)
+    public ContactDetails(Builder builder)
     {
-        this.cellNumber = builder.cellNumber;
-        this.homeNumber = builder.homeNumber;
-        this.emailAddress= builder.emailAddress;
-
+        cellNumber = builder.cellNumber;
+        homeNumber = builder.homeNumber;
+        emailAddress= builder.emailAddress;
     }
 
     public static class Builder{

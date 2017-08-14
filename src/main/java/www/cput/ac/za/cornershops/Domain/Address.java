@@ -7,7 +7,7 @@ import java.io.Serializable;
  */
 public class Address implements Serializable
 {
-    private Long addressId;
+    private String addressId;
     private String streetNumber;
     private String streetName;
     private String area;
@@ -16,7 +16,7 @@ public class Address implements Serializable
 
     public Address() {
     }
-    public Long getAddressId() {
+    public String getAddressId() {
         return addressId;
     }
 
@@ -36,7 +36,7 @@ public class Address implements Serializable
     }
 
     public static class Builder{
-        private Long addressId;
+        private String addressId;
         private String streetNumber;
         private String streetName;
         private String area;
@@ -44,7 +44,7 @@ public class Address implements Serializable
         private String city;
 
 
-        public Builder addressId(Long value)
+        public Builder addressId(String value)
         {
             this.addressId = value;
             return this;
